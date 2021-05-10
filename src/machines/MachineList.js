@@ -6,7 +6,6 @@ class MachineList extends Component {
 
   render() {
     const { machines } = this.props;
-
     return (
       <ul className="MachinesList">
         {machines.map(machine => (
