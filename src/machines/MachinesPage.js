@@ -12,7 +12,6 @@ export default class MachinesPage extends Component {
     const machines = await getMachines();
     if (machines) {
       this.setState({ machines: machines });
-      console.log(machines);
     }
     else {
       console.log('No machines received!');

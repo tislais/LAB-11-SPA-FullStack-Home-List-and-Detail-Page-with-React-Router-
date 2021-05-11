@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
 import MachinesPage from '../machines/MachinesPage';
-//import MachineDetailPage from '../machine/MachineDetailPage';
+import MachineDetailPage from '../machine/MachineDetailPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -34,11 +34,11 @@ class App extends Component {
                 )}
               />
 
-              {/* <Route path="/machines/:id"
+              <Route path="/machines/:id"
                 render={routerProps => (
                   <MachineDetailPage {...routerProps}/>
                 )}
-              /> */}
+              />
 
               <Redirect to="/" />
 

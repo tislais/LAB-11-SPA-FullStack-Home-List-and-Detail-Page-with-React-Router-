@@ -1,4 +1,4 @@
-img {
+.MachineItem img {
   width: 160px;
   height: 120px;
   object-fit: cover;
@@ -12,4 +12,12 @@ a {
 li {
   padding: 20px;
   width:min-content;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.3);
+}
+
+h2 {
+  font-size: 20px;
+  margin: 10px 0;
 }
