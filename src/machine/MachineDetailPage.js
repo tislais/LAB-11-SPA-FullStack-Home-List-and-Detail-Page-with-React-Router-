@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { getMachine } from '../utils/machines-api';
-import { Link } from 'react-router-dom';
 import './MachineDetailPage.css';
 
 export default class MachineDetailPage extends Component {
@@ -13,7 +12,6 @@ export default class MachineDetailPage extends Component {
     const machine = await getMachine(match.params.id);
     if (machine) {
       this.setState({ machine: machine });
-      console.log(machine);
     }
     else {
       console.log('No machine received.');
@@ -32,7 +30,7 @@ export default class MachineDetailPage extends Component {
         <div>{machine.type}</div>
         <div>{machine.designer}</div>
         <div>{machine.unitsProduced} machines produced.</div>
-        <Link to={machine.manual}>Manual</Link>
+        <a href={machine.manual}>Manual</a>
         <div>Rating: {machine.funRating}</div>
         <div>Designed by: {machine.designer}</div>
       </div>
