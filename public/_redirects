@@ -1,2 +1,2 @@
-/api/*  https://sheltered-oasis-27205.herokuapp.com/api/:id
+/api/*  https://sheltered-oasis-27205.herokuapp.com/api/:splat
 /*    /index.html   200
