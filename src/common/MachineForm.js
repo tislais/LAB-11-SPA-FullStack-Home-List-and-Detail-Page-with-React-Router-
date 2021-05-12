@@ -14,7 +14,8 @@ export default class MachineForm extends Component {
     image: '',
     manual: '',
     funRating: '',
-    isFavorite: false
+    isFavorite: false,
+    id: 1
   }
 
   componentDidMount() {

@@ -8,7 +8,7 @@ export default class MachineAddPage extends Component {
     loading: false
   }
 
-  handleAdd = async machineToAdd => {
+  handleAdd = async (machineToAdd) => {
     const { history } = this.props;
 
     try {
