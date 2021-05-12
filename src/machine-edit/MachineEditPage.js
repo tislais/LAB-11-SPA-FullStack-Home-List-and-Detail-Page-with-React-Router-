@@ -6,7 +6,7 @@ export default class MachineEditPage extends Component {
   render() {
     return (
       <div className="MachineEditPage">
-        
+        Hello
       </div>
     );
   }

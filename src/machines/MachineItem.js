@@ -10,9 +10,9 @@ export default class MachineItem extends Component {
     return (
       <li className="MachineItem">
         <Link to={`/machines/${machine.id}`}>
+          <h2>{machine.title}</h2>
           <img src={machine.image} alt={machine.title}/>
-          <div>
-            <h2>{machine.title}</h2>
+          <div className="Stats">
             <div>{machine.manufacturer}</div>
             <div>{machine.dateOfManufacture}</div>
             <div>{machine.type}</div>

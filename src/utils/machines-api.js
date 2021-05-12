@@ -16,3 +16,8 @@ export async function addMachine(machine) {
   const response = await request.post(URL).send(machine);
   return response.body;
 }
+
+export async function deleteMachine(id) {
+  const response = await request.delete(`${URL}/${id}`);
+  return response.body;
+}

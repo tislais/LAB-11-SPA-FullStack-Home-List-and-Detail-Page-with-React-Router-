@@ -1,20 +1,46 @@
 import { Component } from 'react';
 import { getMachine } from '../utils/machines-api';
+import { Link } from 'react-router-dom';
 import './MachineDetailPage.css';
+import { deleteMachine } from '../utils/machines-api';
 
 export default class MachineDetailPage extends Component {
   state = {
-    machine: null
+    machine: null,
+    loading: true
   }
 
   async componentDidMount() {
     const { match } = this.props;
-    const machine = await getMachine(match.params.id);
-    if (machine) {
+
+    try {
+      const machine = await getMachine(match.params.id);
       this.setState({ machine: machine });
     }
-    else {
-      console.log('No machine received.');
+    catch (err) {
+      console.log(err.message);
+    }
+    finally {
+      this.setState({ loading: false });
+    }
+  }
+
+  handleDelete = async () => {
+    const { machine } = this.state;
+    const { history } = this.props;
+
+    const confirmation = `Delete ${machine.title} forever?`;
+
+    if (!window.confirm(confirmation)) { return; }
+
+    try {
+      this.setState({ loading: true });
+      await deleteMachine(machine.id);
+      history.push('/machines');
+    }
+    catch (err) {
+      console.log(err.message);
+      this.setState({ loading: false });
     }
   }
   
@@ -33,6 +59,13 @@ export default class MachineDetailPage extends Component {
         <a href={machine.manual}>Manual</a>
         <div>Rating: {machine.funRating}</div>
         <div>Designed by: {machine.designer}</div>
+        <Link to={`/cats/${machine.id}/edit`}>
+          Edit this Machine
+        </Link>
+        
+        <button className="delete" onClick={this.handleDelete}>
+          Delete this Machine
+        </button>
       </div>
     );
   }
