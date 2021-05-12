@@ -6,13 +6,75 @@ export default class MachineForm extends Component {
     title: '',
     manufacturer: '',
     dateOfManufacture: '',
+    unitsProduced: '',
+    abbreviation: '',
+    mpu: '',
     type: '',
     designer: '',
-    unitsProduced: '',
     image: '',
     manual: '',
     funRating: '',
     isFavorite: false
+  }
+
+  componentDidMount() {
+    const { machine } = this.props;
+    if (!machine) { return; }
+
+    this.setState(machine);
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+  }
+
+  handleChangeTitle = ({ target }) => {
+    this.setState({ title: target.value });
+  }
+
+  handleChangeManufacturer = ({ target }) => {
+    this.setState({ manufacturer: target.value });
+  }
+  
+  handleChangeDateOfManufacture = ({ target }) => {
+    this.setState({ dateOfManufacture: target.value });
+  }
+
+  handleChangeUnitsProduced = ({ target }) => {
+    this.setState({ unitsProduced: target.value });
+  }
+
+  handleChangeAbbreviation = ({ target }) => {
+    this.setState({ abbreviation: target.value });
+  }
+
+  handleChangeMpu = ({ target }) => {
+    this.setState({ mpu: target.value });
+  }
+
+  handleChangeType = ({ target }) => {
+    this.setState({ type: target.value });
+  }
+
+  handleChangeDesigner = ({ target }) => {
+    this.setState({ designer: target.value });
+  }
+
+  handleChangeImage = ({ target }) => {
+    this.setState({ image: target.value });
+  }
+
+  handleChangeManual = ({ target }) => {
+    this.setState({ manual: target.value });
+  }
+
+  handleChangeFunRating = ({ target }) => {
+    this.setState({ funRating: target.value });
+  }
+
+  handleChangeIsFavorite = ({ target }) => {
+    this.setState({ isFavorite: target.checked });
   }
   
   render() {
@@ -38,13 +100,12 @@ export default class MachineForm extends Component {
           <label>
             <span>Machine Title</span>
             <input name="title" required placeholder="Machine title..."
-              value={title} onChange={this.handleChangeName} 
+              value={title} onChange={this.handleChangeTitle} 
             />
           </label>
         </p>
 
         {/* Manufacturer */}
-
         <p>
           <label>
             <span>Manufacturer</span>
@@ -58,7 +119,7 @@ export default class MachineForm extends Component {
         <p>
           <label>
             <span>Date of Manufacture</span>
-            <input name="dateOfManufacture" required pattern="\d{4}"
+            <input name="dateOfManufacture" required 
               title="Should be a four digit year like 2021"
               placeholder="Enter a four-digit year"
               value={dateOfManufacture} onChange={this.handleChangeDateOfManufacture} 
@@ -70,7 +131,7 @@ export default class MachineForm extends Component {
         <p>
           <label>
             <span>Units Produced</span>
-            <input name="unitsProduced" required pattern="^(0|[1-9][0-9]*)$"
+            <input name="unitsProduced" required 
               title="Units Produced"
               placeholder="Enter a number"
               value={unitsProduced} onChange={this.handleChangeUnitsProduced} 
@@ -145,7 +206,7 @@ export default class MachineForm extends Component {
         <p>
           <label>
             <span>Fun Rating</span>
-            <input name="funRating" required pattern="/^\d*\.?\d*$/"
+            <input name="funRating" required 
               title="Number With Decimal"
               placeholder="Fun Rating"
               value={funRating} onChange={this.handleChangeFunRating} 

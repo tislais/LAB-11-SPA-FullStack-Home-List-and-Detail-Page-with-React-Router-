@@ -11,3 +11,8 @@ export async function getMachine(id) {
   const response = await request.get(`${URL}/${id}`);
   return response.body;
 }
+
+export async function addMachine(machine) {
+  const response = await request.post(URL).send(machine);
+  return response.body;
+}
