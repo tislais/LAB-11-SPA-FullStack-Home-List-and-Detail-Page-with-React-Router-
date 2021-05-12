@@ -2,6 +2,10 @@ import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
+import MachinesPage from '../machines/MachinesPage';
+import MachineDetailPage from '../machine/MachineDetailPage';
+import MachineAddPage from '../machine-add/MachineAddPage';
+import MachineEditPage from '../machine-edit/MachineEditPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -26,15 +30,27 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/resources" exact={true}
+              <Route path="/machines" exact={true}
                 render={routerProps => (
-                  <div>Implement a page of resources</div>
+                  <MachinesPage {...routerProps} />
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/machines/add" exact={true}
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <MachineAddPage {...routerProps}/>
+                )}
+              />
+
+              <Route path="/machines/:id"
+                render={routerProps => (
+                  <MachineDetailPage {...routerProps}/>
+                )}
+              />
+
+              <Route path="/machines/:id/edit" exact={true}
+                render={routerProps => (
+                  <MachineEditPage {...routerProps}/>
                 )}
               />
 

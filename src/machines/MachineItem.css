@@ -1,0 +1,38 @@
+.MachineItem img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: #283502;
+}
+
+li {
+  padding: 20px;
+  width:min-content;
+  margin: 10px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 8px 8px 0px rgb(0 0 0 / 20%);
+}
+
+h2 {
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+  padding-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.Stats {
+  margin: 16px 0 0 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.Stats div {
+  margin: 5px 0;
+}
